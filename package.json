@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Get information of exercises from UVA Judge.",
   "main": "index.js",
+  "bin": {
+    "udebug": "cli.js"
+  },
+  "author": {
+    "name": "Julian David",
+    "url": "https://github.com/juliandavidmr"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,14 +30,12 @@
     "LICENSE",
     "README.md"
   ],
-  "author": "@anlijudavid",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/juliandavidmr/uDebug/issues"
   },
   "homepage": "https://github.com/juliandavidmr/uDebug#readme",
   "dependencies": {
-    "async": "^2.1.5",
     "axios": "^0.15.3",
     "caporal": "^0.3.0",
     "scrape-it": "^3.3.0",
