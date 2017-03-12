@@ -16,9 +16,9 @@ prog
   .action((args, options, logger) => {
     console.log("Compilando: ", args.file);
     var file = args.file;
-    if (file.endsWith('.cpp')) {
+    if (file.endsWith('.cpp')) { // Compile cpp
       compile.cpp(file).then(_out => {
-        if(_out) {
+        if (_out) {
           console.log("Error:", _out);
         } else {
           console.log("Compilado");
@@ -26,8 +26,16 @@ prog
       }, err => {
         console.log("Error:", err);
       });
-    } else if (file.endsWith('.java')) {
-
+    } else if (file.endsWith('.java')) { // compile java
+      compile.java(file).then(_out => {
+        if (_out) {
+          console.log("Error:", _out);
+        } else {
+          console.log("Compilado");
+        }
+      }, err => {
+        console.log("Error:", err);
+      });
     } else {
 
     }
@@ -64,6 +72,21 @@ prog
     console.log("Casos de prueba del ejercicio: ", args.number)
     udebug.get(args.number).then(data => {
       console.log(data)
+    })
+    // logger.log("I'm walking !")
+  })
+  /**
+   * Consultar los envios de un usuario
+   */  
+  .command('submissions', 'Casos de prueba')
+  .alias('s')
+  .argument('<number>', 'Numero de usuario: ID User')
+  .action((args, options, logger) => {
+    console.log("Consultando los envios de: ", args.number)
+    uhunt.getUserSubmission(args.number).then(submiss => {
+      console.log(submiss);
+    }, err => {
+      console.log("Error: ", submiss);
     })
     // logger.log("I'm walking !")
   })

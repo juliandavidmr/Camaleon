@@ -17,27 +17,36 @@ $ udebug -h
 # Muestra la ayuda
 ```
 
-## Consultar información
+## Consultar información de ejercicio
 Udebug permite consultar la información basica de un enunciado. Los datos provienen directamente de UVA Judge y uHunt.
 
 ```bash
 $ udebug desc 100
+$ udebug d 100    #=> Usando atajo
 # Donde 100 es el numero del ejercicio según UVA Judge
 ```
+
+## Consultar mis envíos
+Consulte el listado de envíos realizados por un usuario determinado.
+
+```bash
+$ udebug submissions 706667
+$ udebug s 706667    #=> Usando atajo
+# Donde 706667 es el ID del usuario registrado en UVA Judge.
+```
+
 
 ## Compilar código
 
 ### Cpp
 ```bash
-$ udebug c hola.cpp
-# o
+$ udebug c hola.cpp         #=> Atajo
 $ udebug compile hola.cpp
 ```
 
 ### Java
 ```bash
-$ udebug c hola.java
-# o
+$ udebug c hola.java        #=> Atajo
 $ udebug compile hola.java
 ```
 
