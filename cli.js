@@ -6,6 +6,7 @@ var compile = require('./lib/compile');
 var table = require("./lib/table")
 const prog = require('caporal');
 var spinner = require('./lib/spinner');
+var testing = require('./lib/testing');
 
 prog
   .version(require("./package.json").version)
@@ -24,7 +25,10 @@ prog
           spinner.stop();
           console.log(_out ? _out : 'Compilado')
         },
-        err => console.log("Error:", err));
+        err => {
+          spinner.stop();
+          console.log("Error:", err)
+        });
 
     } else if (file.endsWith('.java')) { // compile java
 
@@ -46,9 +50,20 @@ prog
    */
   .command('test', 'test source code java or cpp')
   .alias('t')
-  .argument('<file>', 'Codigo fuente *.cpp o *.java')
-  .action((args, options, logger) => {
-    console.log("Probando codigo: ", args)
+  .argument('<file>', 'Source code *.cpp o *.java')
+  .argument('[number]', 'Number of exercise *.cpp o *.java')
+  .action((args, options, logger) => {  
+    spinner.start("Analyzing " + args.file + (args.number ? args.number : ''));    
+    spinner.changeText("Loading fuel for spacecraft", 1000);
+
+    testing.test(args.file, args.number).then((result => {      
+      spinner.changeText("Loading fuel for spacecraft", 500);
+      spinner.changeText("Preparing motor warp", 500);      
+      spinner.stopSucceed("Completed");
+    }, err => {
+      spinner.stopFail(err);
+      // console.log("Error: ", err);
+    }));
   })
   /**
    * Describe un ejercicio
@@ -57,10 +72,10 @@ prog
   .alias('d')
   .argument('<number>', 'Number of exercise')
   .action((args, options, logger) => {
-    spinner.start("Loading exercise description " + args.number);    
+    spinner.start("Loading exercise description " + args.number);
     // console.log("Descripcion del ejercicio: ", args.number)
     uhunt.byNum(args.number).then(data => {
-      spinner.stop();
+      spinner.stopSucceed("Completed");
       // console.log(data);
       table.show(['pid', 'number', 'title', 'limit', 'status'], [data.pid, data.num, data.title, data.rtl, data.status])
     })
@@ -68,13 +83,14 @@ prog
   /**
    * Casos de pruebas
    */
-  .command('cases', 'Casos de prueba')
+  .command('cases', 'Check test cases')
   .alias('cs')
   .argument('<number>', 'Number of exercise')
+  .argument('[save]', 'Save program execution output') // hacer que cuando este argumento este presente entocnes que se gurde los casos de salida
   .action((args, options, logger) => {
     spinner.start("Loading test cases of the exercise " + args.number);
     udebug.get(args.number).then(data => {
-      spinner.stop();
+      spinner.stopSucceed("Completed");
 
       var test_cases = [];
       data.map((item, index) => {
@@ -97,7 +113,7 @@ prog
   .action((args, options, logger) => {
     spinner.start("Loading submissions by " + args.number);
     uhunt.getUserSubmission(args.number).then(submiss => {
-      spinner.stop();
+      spinner.stopSucceed("Completed");
 
       // console.log(submiss);
       table.show(['name', 'user name'], [
