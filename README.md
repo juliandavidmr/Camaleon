@@ -7,7 +7,7 @@ Permite obtener, visualizar y probar rápidamente ejercicios desarrollados en C+
 
 ## Instalación
 
-### Aún está en proceso de desarrollo, por lo tanto no se encuentra publicado en npm.
+### _Aún está en proceso de desarrollo, por lo tanto no se encuentra publicado en npm._
 
 ```bash
 $ [sudo] npm install -g udebug
@@ -71,6 +71,15 @@ Case  5  by  Ryuuk :
 9999 9998     ┘
                   
 ...
+```
+
+## Probar código [Aún en desarrollo]
+Verifique que el código cumpla con los casos de salida de ejemplo en [uDebug](https://www.udebug.com/):
+
+```bash
+$ udebug test examples/100.cpp
+#=> Resultados de la prueba
+
 ```
 
 ## Compilar código

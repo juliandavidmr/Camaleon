@@ -40,6 +40,7 @@ prog
           spinner.stop();
           console.log("Error:", err)
         });
+        
     } else {
       spinner.stop();
       console.log("Error", args.file, " => No aceptado")
@@ -62,7 +63,7 @@ prog
       spinner.stopSucceed("Completed");
     }, err => {
       spinner.stopFail(err);
-      // console.log("Error: ", err);
+      console.log("Fallo: ", err);
     }));
   })
   /**
