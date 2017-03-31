@@ -1,10 +1,10 @@
 {
-  "name": "udebug",
-  "version": "1.0.0",
-  "description": "Get information of exercises from UVA Judge.",
+  "name": "camaleon",
+  "version": "1.0.2",
+  "description": "Installable module, available for Linux, Windows and Mac OS. Quickly view information about any exercise available in Udebug and UVA Judge.",
   "main": "index.js",
   "bin": {
-    "udebug": "cli.js"
+    "camaleon": "cli.js"
   },
   "author": {
     "name": "Julian David",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juliandavidmr/uDebug.git"
+    "url": "git+https://github.com/juliandavidmr/Camaleon.git"
   },
   "keywords": [
     "udebug",
@@ -27,14 +27,16 @@
     "lib/",
     "package.json",
     "index.js",
+    "cli.js",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "docs/"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/juliandavidmr/uDebug/issues"
+    "url": "https://github.com/juliandavidmr/Camaleon/issues"
   },
-  "homepage": "https://github.com/juliandavidmr/uDebug#readme",
+  "homepage": "https://github.com/juliandavidmr/Camaleon#readme",
   "dependencies": {
     "axios": "^0.15.3",
     "caporal": "^0.3.0",
