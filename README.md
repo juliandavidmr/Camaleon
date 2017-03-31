@@ -21,7 +21,8 @@ $ udebug -h
 Udebug permite consultar la información basica de un enunciado. Los datos provienen directamente de UVA Judge y uHunt.
 
 ```bash
-$ udebug desc 100    #Nota: udebug d 100 -> Usando atajo
+# Atajo: udebug d 100
+$ udebug desc 100
 ┌─────┬────────┬────────────────────┬───────┬────────┐
 │ pid │ number │ title              │ limit │ status │
 ├─────┼────────┼────────────────────┼───────┼────────┤
@@ -34,6 +35,7 @@ Consulte el listado de envíos realizados por un usuario determinado.
 
 ```bash
 # 706667 es el ID del usuario registrado en UVA Judge.
+# Atajo: udebug sb 123
 $ udebug submissions 706667
 ┌──────────────┬─────────────────────────┐
 │ name         │ user name               │
@@ -73,14 +75,6 @@ Case  5  by  Ryuuk :
 ...
 ```
 
-## Probar código [Aún en desarrollo]
-Verifique que el código cumpla con los casos de salida de ejemplo en [uDebug](https://www.udebug.com/):
-
-```bash
-$ udebug test examples/100.cpp
-#=> Resultados de la prueba
-
-```
 
 ## Compilar código
 
@@ -109,3 +103,26 @@ $ udebug help <comando>
 # Ejemplo:
 $ udebug help submissions
 ```
+
+**Nota:** Si el nombre del archivo contiene espacios entonces usar comillas dobles para especificar el nombre del archivo:
+```bash
+$ udebug c "carpeta/nombre archivo.cpp"
+```
+
+
+## Probar código **[Aún en desarrollo y no disponible en npm]**
+Verifique que el código cumpla con los casos de salida de ejemplo en [uDebug](https://www.udebug.com/):
+
+```bash
+$ udebug test examples/100.cpp
+#=> Resultados de la prueba
+
+```
+
+### Contributing
+
+Udebug is an open source project. See [CONTRIBUTING](./docs/CONTRIBUTING.md) for details.
+
+### LICENSE
+
+This module is released under the [MIT License] license. @juliandavidmr
