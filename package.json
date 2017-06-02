@@ -38,8 +38,8 @@
   },
   "homepage": "https://github.com/juliandavidmr/Camaleon#readme",
   "dependencies": {
-    "axios": "^0.15.3",
-    "caporal": "^0.3.0",
+    "axios": "^0.16.1",
+    "caporal": "^0.6.0",
     "cli-table": "^0.3.1",
     "ora": "^1.1.0",
     "scrape-it": "^3.3.0",
